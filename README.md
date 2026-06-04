@@ -13,6 +13,8 @@
 
 ## AI 自动安装
 
+### Claude Code
+
 将以下提示词发送给 Claude Code，即可自动完成安装与配置：
 
 ```
@@ -20,6 +22,18 @@
 1. 克隆 https://github.com/griftt/candao-skill 到本地临时目录
 2. 将 gen-showdoc-md 和 upload-to-showdoc 两个目录复制到 ~/.claude/skills/
 3. 询问我的 ShowDoc 地址、用户名和密码，填入 ~/.claude/skills/upload-to-showdoc/config.json
+4. 完成后告诉我可以使用 /gen-showdoc-md 和 /upload-to-showdoc 两个命令
+```
+
+### Qoder
+
+将以下提示词发送给 Qoder，即可自动完成安装与配置：
+
+```
+请帮我安装 candao-skill 技能包：
+1. 克隆 https://github.com/griftt/candao-skill 到本地临时目录
+2. 将 .qoder/skills/ 下的 gen-showdoc-md 和 upload-to-showdoc 两个目录复制到当前项目的 .qoder/skills/
+3. 询问我的 ShowDoc 地址、用户名和密码，填入 .qoder/skills/upload-to-showdoc/config.json
 4. 完成后告诉我可以使用 /gen-showdoc-md 和 /upload-to-showdoc 两个命令
 ```
 

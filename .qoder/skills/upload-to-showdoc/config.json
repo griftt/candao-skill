@@ -1,0 +1,7 @@
+{
+  "showdoc": {
+    "base_url": "https://your-showdoc-host/showdoc/server/",
+    "username": "your_username",
+    "password": "your_password"
+  }
+}
