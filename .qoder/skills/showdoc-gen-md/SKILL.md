@@ -1,5 +1,5 @@
 ---
-name: gen-showdoc-md
+name: showdoc-gen-md
 description: 从Java代码生成markdown接口文档。当用户提到"生成接口文档"、"代码转文档"、"接口文档生成"时使用此技能。
 triggers:
   - 生成接口文档

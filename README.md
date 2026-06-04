@@ -6,8 +6,8 @@
 
 | 技能 | 命令 | 功能 |
 |------|------|------|
-| gen-showdoc-md | `/gen-showdoc-md` | 从 Java 接口代码生成标准 Markdown 接口文档 |
-| upload-to-showdoc | `/upload-to-showdoc` | 将本地 Markdown 文档批量上传到 ShowDoc |
+| showdoc-gen-md | `/showdoc-gen-md` | 从 Java 接口代码生成标准 Markdown 接口文档 |
+| showdoc-md-upload | `/showdoc-md-upload` | 将本地 Markdown 文档批量上传到 ShowDoc |
 
 ---
 
@@ -20,9 +20,9 @@
 ```
 请帮我安装 candao-skill 技能包：
 1. 克隆 https://github.com/griftt/candao-skill 到本地临时目录
-2. 将 gen-showdoc-md 和 upload-to-showdoc 两个目录复制到 ~/.claude/skills/
-3. 询问我的 ShowDoc 地址、用户名和密码，填入 ~/.claude/skills/upload-to-showdoc/config.json
-4. 完成后告诉我可以使用 /gen-showdoc-md 和 /upload-to-showdoc 两个命令
+2. 将 showdoc-gen-md 和 showdoc-md-upload 两个目录复制到 ~/.claude/skills/
+3. 询问我的 ShowDoc 地址、用户名和密码，填入 ~/.claude/skills/showdoc-md-upload/config.json
+4. 完成后告诉我可以使用 /showdoc-gen-md 和 /showdoc-md-upload 两个命令
 ```
 
 ### Qoder
@@ -32,9 +32,9 @@
 ```
 请帮我安装 candao-skill 技能包：
 1. 克隆 https://github.com/griftt/candao-skill 到本地临时目录
-2. 将 .qoder/skills/ 下的 gen-showdoc-md 和 upload-to-showdoc 两个目录复制到当前项目的 .qoder/skills/
-3. 询问我的 ShowDoc 地址、用户名和密码，填入 .qoder/skills/upload-to-showdoc/config.json
-4. 完成后告诉我可以使用 /gen-showdoc-md 和 /upload-to-showdoc 两个命令
+2. 将 .qoder/skills/ 下的 showdoc-gen-md 和 showdoc-md-upload 两个目录复制到当前项目的 .qoder/skills/
+3. 询问我的 ShowDoc 地址、用户名和密码，填入 .qoder/skills/showdoc-md-upload/config.json
+4. 完成后告诉我可以使用 /showdoc-gen-md 和 /showdoc-md-upload 两个命令
 ```
 
 ---
@@ -44,11 +44,11 @@
 将两个技能目录复制到 Claude Code 技能目录下：
 
 ```bash
-cp -r gen-showdoc-md ~/.claude/skills/
-cp -r upload-to-showdoc ~/.claude/skills/
+cp -r showdoc-gen-md ~/.claude/skills/
+cp -r showdoc-md-upload ~/.claude/skills/
 ```
 
-配置 ShowDoc 凭证（编辑 `~/.claude/skills/upload-to-showdoc/config.json`）：
+配置 ShowDoc 凭证（编辑 `~/.claude/skills/showdoc-md-upload/config.json`）：
 
 ```json
 {
@@ -66,10 +66,10 @@ cp -r upload-to-showdoc ~/.claude/skills/
 
 ### 第一步：从代码生成文档
 
-调用 `/gen-showdoc-md`，提供 Java 接口全路径，例如：
+调用 `/showdoc-gen-md`，提供 Java 接口全路径，例如：
 
 ```
-/gen-showdoc-md com.candao.order.own.api.IOrderOwnBApi#queryOrderProductSalesRecord
+/showdoc-gen-md com.candao.order.own.api.IOrderOwnBApi#queryOrderProductSalesRecord
 ```
 
 技能会自动：
@@ -114,7 +114,7 @@ cp -r upload-to-showdoc ~/.claude/skills/
 
 ### 第二步：上传文档到 ShowDoc
 
-调用 `/upload-to-showdoc`，指定本地文件路径和目标分类，例如：
+调用 `/showdoc-md-upload`，指定本地文件路径和目标分类，例如：
 
 ```
 上传 docs/order-product-sales/ 下所有文档到商户端API订单系统
@@ -137,11 +137,11 @@ https://your-showdoc-host/showdoc/web/#/1?page_id=33263
 ```
 candao-skill/
 ├── README.md
-├── gen-showdoc-md/
+├── showdoc-gen-md/
 │   ├── SKILL.md              # 技能主文件
 │   └── references/
 │       └── api_doc.md        # 文档格式模板
-└── upload-to-showdoc/
+└── showdoc-md-upload/
     ├── SKILL.md              # 技能主文件
     └── config.json           # ShowDoc 凭证配置（需填写）
 ```

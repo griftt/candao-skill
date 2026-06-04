@@ -1,5 +1,5 @@
 ---
-name: upload-to-showdoc
+name: showdoc-md-upload
 description: |
   Upload API documentation to ShowDoc. Use this skill when user wants to:
   - "上传文档到ShowDoc"
@@ -38,7 +38,7 @@ description: |
 
 **优先顺序**：
 1. **文档中的凭证** - 如果用户提供的文档中已包含 `username` 和 `password`，直接使用
-2. **配置文件** - 读取 `~/.claude/skills/upload-to-showdoc/config.json`
+2. **配置文件** - 读取 `~/.claude/skills/showdoc-md-upload/config.json`
 3. **询问用户** - 以上都没有时，询问用户
 
 **配置文件格式** (`config.json`)：
@@ -58,7 +58,7 @@ description: |
 
 读取配置文件获取凭证：
 ```bash
-CONFIG=$(cat ~/.claude/skills/upload-to-showdoc/config.json)
+CONFIG=$(cat ~/.claude/skills/showdoc-md-upload/config.json)
 USERNAME=$(echo $CONFIG | python3 -c "import json,sys; print(json.load(sys.stdin)['showdoc']['username'])")
 PASSWORD=$(echo $CONFIG | python3 -c "import json,sys; print(json.load(sys.stdin)['showdoc']['password'])")
 ```
