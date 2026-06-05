@@ -84,14 +84,20 @@ curl -s -X POST "${SHOWDOC_BASE}index.php?s=/api/page/save" \
   -H 'accept: application/json, text/plain, */*' \
   -H 'content-type: application/x-www-form-urlencoded;charset=UTF-8' \
   -H "Cookie: cookie_token=${COOKIE_TOKEN}" \
-  -d "page_id=0&item_id=1&s_number=&page_title=${TITLE}&page_content=${ENCODED_CONTENT}&is_urlencode=1&cat_id=${CAT_ID}"
+  -d "page_id=0&item_id=${ITEM_ID}&s_number=&page_title=${TITLE}&page_content=${ENCODED_CONTENT}&is_urlencode=1&cat_id=${CAT_ID}"
 ```
+
+**item_id 取值规则（上传前确定）：**
+| 版本 | item_id | 触发条件 |
+|------|---------|---------|
+| 标准版 | 1 | 默认，未特别说明时 |
+| 国际版 | 23 | 用户明确提到"国际版" |
 
 **参数说明：**
 | 参数 | 说明 |
 |------|------|
 | page_id | 0表示新增，非0表示编辑 |
-| item_id | 项目ID，固定为1 |
+| item_id | 项目ID，见上方取值规则 |
 | page_title | 页面标题 |
 | page_content | URL编码后的Markdown内容 |
 | is_urlencode | 固定为1 |
