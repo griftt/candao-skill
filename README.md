@@ -1,6 +1,6 @@
 # candao-skill
 
-餐道云平台 Claude Code 技能包，包含接口文档生成与 ShowDoc 上传两个工作流技能。
+餐道云平台 Claude Code 技能包，包含接口文档生成与 ShowDoc 上传工作流技能。
 
 ## 技能列表
 
@@ -8,6 +8,7 @@
 |------|------|------|
 | showdoc-gen-md | `/showdoc-gen-md` | 从 Java 接口代码生成标准 Markdown 接口文档 |
 | showdoc-md-upload | `/showdoc-md-upload` | 将本地 Markdown 文档批量上传到 ShowDoc |
+| showdoc-publish | `/showdoc-publish` | 生成文档 → 用户确认 → 一键上传，全流程整合 |
 
 ---
 
@@ -20,9 +21,9 @@
 ```
 请帮我安装 candao-skill 技能包：
 1. 克隆 https://github.com/griftt/candao-skill 到本地临时目录
-2. 将 showdoc-gen-md 和 showdoc-md-upload 两个目录复制到 ~/.claude/skills/
+2. 将 showdoc-gen-md、showdoc-md-upload、showdoc-publish 三个目录复制到 ~/.claude/skills/
 3. 询问我的 ShowDoc 地址、用户名和密码，填入 ~/.claude/skills/showdoc-md-upload/config.json
-4. 完成后告诉我可以使用 /showdoc-gen-md 和 /showdoc-md-upload 两个命令
+4. 完成后告诉我可以使用 /showdoc-gen-md、/showdoc-md-upload、/showdoc-publish 三个命令
 ```
 
 ### Qoder
@@ -32,9 +33,30 @@
 ```
 请帮我安装 candao-skill 技能包：
 1. 克隆 https://github.com/griftt/candao-skill 到本地临时目录
-2. 将 .qoder/skills/ 下的 showdoc-gen-md 和 showdoc-md-upload 两个目录复制到当前项目的 .qoder/skills/
-3. 询问我的 ShowDoc 地址、用户名和密码，填入 .qoder/skills/showdoc-md-upload/config.json
-4. 完成后告诉我可以使用 /showdoc-gen-md 和 /showdoc-md-upload 两个命令
+2. 将 .qoder/skills/ 下的 showdoc-gen-md、showdoc-md-upload、showdoc-publish 三个目录复制到 ~/.qoder/skills/
+3. 询问我的 ShowDoc 地址、用户名和密码，填入 ~/.qoder/skills/showdoc-md-upload/config.json
+4. 完成后告诉我可以使用 /showdoc-gen-md、/showdoc-md-upload、/showdoc-publish 三个命令
+```
+
+---
+
+## AI 更新（已安装用户）
+
+技能有新版本时，将以下提示词发送给 Claude Code 或 Qoder 执行更新：
+
+```
+请帮我更新 candao-skill 技能包：
+1. 进入本地 candao-skill 仓库目录（如不知道路径，先用 find ~ -name "update.sh" -path "*/candao-skill/*" 查找）
+2. 运行 bash update.sh
+3. 告诉我哪些技能已更新完成
+注意：config.json 中的密码配置不会被覆盖
+```
+
+### 手动更新
+
+```bash
+cd /path/to/candao-skill
+bash update.sh
 ```
 
 ---
